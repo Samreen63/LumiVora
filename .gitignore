@@ -1,6 +1,7 @@
 # Environment
 .env
 .env.*
+.envrc
 !.env.example
 
 # Dependencies
