@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LumiVora — Launching in 3 Days</title>
+  <meta name="description" content="LumiVora is under construction. A new experience is launching in 3 days.">
+  <meta name="theme-color" content="#05070d">
+  <meta property="og:title" content="LumiVora — Launching in 3 Days">
+  <meta property="og:description" content="Something extraordinary is on the way. Launching in 3 days.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23a78bfa'/%3E%3Cstop offset='1' stop-color='%2322d3ee'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%230b1020'/%3E%3Cpath d='M22 16v28h22' stroke='url(%23g)' stroke-width='6' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --bg: #05070d;
+      --text: #f5f7ff;
+      --muted: #96a2ba;
+      --line: rgba(255, 255, 255, 0.1);
+      --panel: rgba(255, 255, 255, 0.045);
+      --accent: #a78bfa;
+      --accent-alt: #22d3ee;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      min-height: 100%;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(124, 92, 255, 0.18), transparent 35%),
+        radial-gradient(circle at 85% 20%, rgba(34, 211, 238, 0.14), transparent 32%),
+        radial-gradient(circle at 50% 100%, rgba(167, 139, 250, 0.12), transparent 42%),
+        var(--bg);
+      color: var(--text);
+      font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .backdrop {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.55;
+      animation: drift 16s ease-in-out infinite alternate;
+    }
+
+    .orb-one {
+      width: 30rem;
+      height: 30rem;
+      top: -10rem;
+      left: -9rem;
+      background: rgba(124, 92, 255, 0.45);
+    }
+
+    .orb-two {
+      width: 26rem;
+      height: 26rem;
+      right: -8rem;
+      bottom: -6rem;
+      background: rgba(34, 211, 238, 0.32);
+      animation-delay: -6s;
+    }
+
+    .grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(circle at center, black 10%, transparent 72%);
+      -webkit-mask-image: radial-gradient(circle at center, black 10%, transparent 72%);
+      opacity: 0.55;
+    }
+
+    .shell {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 58rem);
+      padding: 2.5rem 1.5rem 2rem;
+      text-align: center;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-bottom: clamp(2.5rem, 7vh, 4.5rem);
+      animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 0.8rem;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: linear-gradient(145deg, rgba(167, 139, 250, 0.25), rgba(34, 211, 238, 0.12));
+      box-shadow: 0 0 30px rgba(124, 92, 255, 0.25);
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .brand-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .hero > * {
+      animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .hero > *:nth-child(1) { animation-delay: 0.08s; }
+    .hero > *:nth-child(2) { animation-delay: 0.16s; }
+    .hero > *:nth-child(3) { animation-delay: 0.24s; }
+    .hero > *:nth-child(4) { animation-delay: 0.32s; }
+    .hero > *:nth-child(5) { animation-delay: 0.4s; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      margin: 0 0 1.5rem;
+      padding: 0.45rem 0.85rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.035);
+      color: #c3ccdd;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      backdrop-filter: blur(12px);
+    }
+
+    .pulse {
+      width: 0.45rem;
+      height: 0.45rem;
+      border-radius: 50%;
+      background: #34d399;
+      box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.6);
+      animation: pulse 2s ease-out infinite;
+    }
+
+    h1 {
+      max-width: 15ch;
+      margin: 0 auto;
+      font-size: clamp(2.6rem, 7.4vw, 5.4rem);
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+      font-weight: 700;
+    }
+
+    .gradient {
+      background: linear-gradient(100deg, var(--accent) 5%, #8be9ff 55%, var(--accent-alt) 95%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .lede {
+      max-width: 36rem;
+      margin: 1.5rem auto 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.12rem);
+      line-height: 1.75;
+    }
+
+    .lede strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: clamp(0.55rem, 1.6vw, 1rem);
+      margin: clamp(2rem, 5vh, 3rem) auto 1.25rem;
+      max-width: 40rem;
+    }
+
+    .unit {
+      position: relative;
+      min-width: clamp(4.5rem, 15vw, 6.4rem);
+      padding: clamp(0.9rem, 2vw, 1.35rem) 0.85rem;
+      border: 1px solid var(--line);
+      border-radius: 1.1rem;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.025));
+      box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(16px);
+      overflow: hidden;
+    }
+
+    .unit::before {
+      content: "";
+      position: absolute;
+      inset: 0 18% auto;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(167, 139, 250, 0.85), transparent);
+    }
+
+    .unit span {
+      display: block;
+      font-size: clamp(1.9rem, 5vw, 2.85rem);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .unit small {
+      display: block;
+      margin-top: 0.55rem;
+      color: #8994aa;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .status {
+      margin: 0;
+      color: #78839a;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+    }
+
+    footer {
+      margin-top: clamp(3.5rem, 9vh, 6rem);
+      padding-top: 1.4rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      color: #5e687c;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+    }
+
+    .noscript {
+      position: fixed;
+      left: 50%;
+      bottom: 1.25rem;
+      transform: translateX(-50%);
+      margin: 0;
+      padding: 0.7rem 1rem;
+      border: 1px solid var(--line);
+      border-radius: 0.7rem;
+      background: #0b1020;
+      color: var(--muted);
+      font-size: 0.78rem;
+      text-align: center;
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.55); }
+      70% { box-shadow: 0 0 0 0.55rem rgba(52, 211, 153, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
+    }
+
+    @keyframes drift {
+      from { transform: translate3d(0, 0, 0) scale(1); }
+      to { transform: translate3d(2.5rem, 1.5rem, 0) scale(1.08); }
+    }
+
+    @media (max-width: 520px) {
+      .shell {
+        padding: 2rem 1.1rem 1.6rem;
+      }
+
+      .brand {
+        margin-bottom: 2.6rem;
+      }
+
+      h1 {
+        max-width: 12ch;
+      }
+
+      .countdown {
+        gap: 0.5rem;
+      }
+
+      .unit {
+        min-width: 4.1rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="backdrop" aria-hidden="true">
+    <span class="orb orb-one"></span>
+    <span class="orb orb-two"></span>
+    <span class="grid"></span>
+  </div>
+
+  <main class="shell">
+    <header class="brand">
+      <span class="brand-mark" aria-hidden="true">L</span>
+      <span class="brand-name">LumiVora</span>
+    </header>
+
+    <section class="hero">
+      <p class="eyebrow"><span class="pulse" aria-hidden="true"></span> Website under construction</p>
+      <h1>Something <span class="gradient">extraordinary</span> is on the way.</h1>
+      <p class="lede">We are building a brand-new experience at LumiVora. The final touches are underway — launch is just <strong>3 days</strong> away.</p>
+
+      <div class="countdown" role="timer" aria-label="Time remaining until launch">
+        <div class="unit"><span id="days">03</span><small>Days</small></div>
+        <div class="unit"><span id="hours">00</span><small>Hours</small></div>
+        <div class="unit"><span id="minutes">00</span><small>Minutes</small></div>
+        <div class="unit"><span id="seconds">00</span><small>Seconds</small></div>
+      </div>
+
+      <p class="status" id="status">Launching November 18, 2026</p>
+    </section>
+
+    <footer>&copy; <span id="year">2026</span> LumiVora. All rights reserved.</footer>
+  </main>
+
+  <noscript>
+    <p class="noscript">Launching in 3 days. Enable JavaScript to see the live countdown.</p>
+  </noscript>
+
+  <script>
+    (function () {
+      var launchAt = new Date("2026-11-18T18:00:00Z").getTime();
+      var parts = {
+        days: document.getElementById("days"),
+        hours: document.getElementById("hours"),
+        minutes: document.getElementById("minutes"),
+        seconds: document.getElementById("seconds")
+      };
+      var status = document.getElementById("status");
+      var year = document.getElementById("year");
+      var timer;
+
+      function pad(value) {
+        return String(value).padStart(2, "0");
+      }
+
+      function tick() {
+        var remaining = launchAt - Date.now();
+
+        if (remaining <= 0) {
+          parts.days.textContent = "00";
+          parts.hours.textContent = "00";
+          parts.minutes.textContent = "00";
+          parts.seconds.textContent = "00";
+          status.textContent = "Launch day is here.";
+          clearInterval(timer);
+          return;
+        }
+
+        var totalSeconds = Math.floor(remaining / 1000);
+        parts.days.textContent = pad(Math.floor(totalSeconds / 86400));
+        parts.hours.textContent = pad(Math.floor((totalSeconds % 86400) / 3600));
+        parts.minutes.textContent = pad(Math.floor((totalSeconds % 3600) / 60));
+        parts.seconds.textContent = pad(totalSeconds % 60);
+      }
+
+      if (year) {
+        year.textContent = new Date().getFullYear();
+      }
+
+      tick();
+      timer = setInterval(tick, 1000);
+    })();
+  </script>
+</body>
+</html>
