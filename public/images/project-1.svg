@@ -1,0 +1,16 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a1033"/>
+      <stop offset="100%" stop-color="#0b1020"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#g)"/>
+  <rect x="80" y="80" rx="24" width="1040" height="590" fill="#111827" stroke="#2a3350"/>
+  <rect x="120" y="130" rx="12" width="420" height="28" fill="#2b3550"/>
+  <rect x="120" y="190" rx="16" width="300" height="180" fill="#1b2440"/>
+  <rect x="440" y="190" rx="16" width="300" height="180" fill="#1b2440"/>
+  <rect x="760" y="190" rx="16" width="300" height="180" fill="#1b2440"/>
+  <rect x="120" y="400" rx="16" width="940" height="220" fill="#151d33"/>
+  <text x="120" y="640" fill="#a78bfa" font-size="42" font-family="Arial, sans-serif">FinFlow Analytics (Placeholder)</text>
+</svg>

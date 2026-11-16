@@ -1,0 +1,9 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#141028"/><stop offset="100%" stop-color="#0a0f1f"/></linearGradient></defs>
+  <rect width="1200" height="750" fill="url(#g)"/>
+  <rect x="120" y="110" rx="24" width="960" height="520" fill="#10172a" stroke="#2b3552"/>
+  <rect x="170" y="170" rx="16" width="420" height="400" fill="#18233b"/>
+  <rect x="620" y="170" rx="16" width="400" height="120" fill="#1c2944"/>
+  <rect x="620" y="320" rx="16" width="400" height="250" fill="#18233b"/>
+  <text x="170" y="660" fill="#c4b5fd" font-size="42" font-family="Arial, sans-serif">Medora Booking (Placeholder)</text>
+</svg>
